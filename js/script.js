@@ -70,7 +70,7 @@ function validateForm(name, phone, quantity) {
 // -----------------------------------------------
 // MAIN ORDER CALCULATION (runs on Submit click)
 // -----------------------------------------------
-document.addEventListener("DOMContentLoaded", function () {
+$(document).ready(function ()
 
   // ── Submit Button ──────────────────────────────
   document.getElementById("btnSubmit").addEventListener("click", function () {
@@ -170,10 +170,14 @@ document.addEventListener("DOMContentLoaded", function () {
 // jQuery: Navbar active link highlight
 // -----------------------------------------------
 $(document).ready(function () {
-  const currentPage = window.location.pathname.split("/").pop();
-  $(".nav-link").each(function () {
-    if ($(this).attr("href") === currentPage) {
-      $(this).addClass("active");
-    }
+
+  // ALL your code here (submit, reset, toggle, navbar)
+
+  $("#toggleHowItWorks").click(function () {
+    $("#howItWorksContent").slideToggle(400);
+
+    let btnText = $(this).text();
+    $(this).text(btnText.includes("Show") ? "Hide Details ▲" : "Show Details ▼");
   });
+
 });
