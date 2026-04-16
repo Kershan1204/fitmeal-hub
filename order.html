@@ -1,0 +1,52 @@
+document.getElementById("submitBtn").addEventListener("click", function () {
+
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let product = document.getElementById("product").value;
+    let quantity = Number(document.getElementById("quantity").value);
+    let dineOption = document.getElementById("dineOption").value;
+
+    // VALIDATION
+    if (name === "" || phone === "" || quantity <= 0) {
+        alert("Please fill all fields correctly!");
+        return;
+    }
+
+    // PRICE
+    let price;
+    if (product === "chicken") {
+        price = 10;
+    } else if (product === "beef") {
+        price = 12;
+    } else {
+        price = 8;
+    }
+
+    // CALCULATION
+    let subtotal = price * quantity;
+
+    let discount = 0;
+    if (subtotal > 50) {
+        discount = subtotal * 0.1;
+    }
+
+    let total = subtotal - discount;
+
+    let packaging = (dineOption === "Take Away") ? 0.5 : 0;
+
+    let finalPayment = total + packaging;
+
+    // OUTPUT DISPLAY
+    document.getElementById("output").innerHTML = `
+        <h4>Order Summary</h4>
+        Name: ${name} <br>
+        Phone: ${phone} <br>
+        Product: ${product} <br>
+        Quantity: ${quantity} <br>
+        Subtotal: RM ${subtotal.toFixed(2)} <br>
+        Discount: RM ${discount.toFixed(2)} <br>
+        Total: RM ${total.toFixed(2)} <br>
+        Packaging: RM ${packaging.toFixed(2)} <br>
+        <b>Final Payment: RM ${finalPayment.toFixed(2)}</b>
+    `;
+});
