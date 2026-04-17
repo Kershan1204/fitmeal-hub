@@ -145,3 +145,12 @@ $(document).ready(function () {
   });
 
 });
+
+// -------------------------------
+// CONTACT FORM (contact.html)
+// -------------------------------
+$("#contactForm").on("submit", function(e) {
+  e.preventDefault();
+  alert("✅ Message sent! We will contact you soon.");
+  this.reset();
+});

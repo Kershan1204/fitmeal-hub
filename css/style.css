@@ -11,9 +11,8 @@ body {
 }
 
 .info-card {
-    background-color: blue;
-    border-left: 5px solid green; 
-    height: 100%;
+  background-color: #ffffff;
+  border-left: 5px solid #198754;
 }
 
 .form-container {
